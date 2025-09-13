@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan Ulang Tahun</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url("mentahan/Red\ And\ Blue\ Watercolor\ Happy\ Birthday\ A4\ Document.jpg") ;
+      background-size: cover; /* bikin penuh layar & responsive */
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-aspect-ratio: 3/4) {
+        body {
+            background-size: contain;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+    /* Kalau layar super lebar (misal monitor ultrawide), pakai contain */
+    @media (min-aspect-ratio: 21/9) {
+        body {
+            background-size: contain;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+}
+
+
+    /* Overlay biar teks tetap jelas */
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #container {
+        display: none; /* awalnya sembunyiin */
+        max-width: 600px;
+        width: 90%;             /* ikut lebar layar */
+        min-height: 200px;
+        background-color: red;
+        backgound: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+
+    /* Kotak ucapan */
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+    }
+    
+    .card h1 {
+        font-size: 2rem;
+    }
+
+    .card p {
+      font-size: 1.2rem;
+    }
+    
+    
+    /* Responsive teks */
+    @media (max-width: 768px) {
+        .card h1 { font-size: 1.5rem; }
+        .card p { font-size: 1rem; }
+        #container {
+            max-width: 90%;
+            font-size: 1rem;
+            padding: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .card h1 { font-size: 1.2rem; }
+        .card p { font-size: 0.9rem; }
+        
+        #container {
+          max-width: 95%;
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+        <h1>KONTOL</h1>
+    </div>
+    <div class="overlay">
+      <div class="card">
+        <img src="mentahan/heart-17211_256.gif" alt="gambar error" onclick="openMail()">
+      <p>Buka Pesan!</p>
+    </div>
+  </div>
+  <script>
+  function openMail(){
+    Swal.fire({
+      title: 'Masukkan Nama Kamu',
+      input: 'text',
+      inputPlaceholder: 'Tulis nama di sini...',
+      confirmButtonText: 'OK',
+      inputValidator: (value) => {
+        if (!value) {
+          return 'ngeyel, isi nama kamu!';
+        }
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Halo, ' + result.value + ' 🎉',
+          text: 'Aku ada pesan buat kamu nih',
+          confirmButtonText: 'Lihat Pesan'
+        }).then(() => {
+          // ilangin overlay
+          document.querySelector(".overlay").style.display = "none";
+
+          // munculin container
+          const kontainer = document.getElementById("container");
+          kontainer.style.display = "flex"; 
+        });
+      }
+    });
+  }
+</script>
+
+
+</body>
+</html>
