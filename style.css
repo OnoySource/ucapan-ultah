@@ -22,31 +22,7 @@
       justify-content: center;
       align-items: center;
     }
-    @media (max-aspect-ratio: 3/4) {
-        body {
-            background-size: contain;
-            font-family: "Chewy", system-ui;
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
     
-    /* Kalau layar super lebar (misal monitor ultrawide), pakai contain */
-    @media (min-aspect-ratio: 21/9) {
-        body {
-            background-size: contain;
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-      }
     
 
     /* Overlay biar teks tetap jelas */
@@ -81,6 +57,10 @@
         align-items: center;
         margin-bottom: 20px;
         text-align: justify;
+    }
+    .image img{
+        border-radius: 5px;
+
     }
 
     /* Kotak ucapan */
@@ -123,6 +103,7 @@
         object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
         object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
         display: block;
+        
     }
     #slide9{
         text-align: center;
