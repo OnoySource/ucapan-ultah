@@ -47,11 +47,11 @@
             align-items: center;
         }
       }
-
+    
 
     /* Overlay biar teks tetap jelas */
     .overlay {
-      display: flex;
+      display: none;
       background: rgba(0, 0, 0, 0.9);
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -60,12 +60,10 @@
       padding: 20px;
     }
     #container {
-        display: none; /* awalnya sembunyiin */
+        display: block; /* awalnya sembunyiin */
         max-width: 600px;
         width: 90%;             /* ikut lebar layar */
         min-height: 400px;
-        background-color: #fff0f3;
-        box-shadow: 0 4px 6px rgba(255, 0, 64, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);     /* shadow netral lembut */
         color: #22223b;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 2px;
@@ -106,13 +104,10 @@
     .slide {
       width: 100%;
       height: auto;
-      overflow: hidden;
+      overflow: auto;
       display: none;
       text-align: justify;
       padding: 20px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 15px;
-      backdrop-filter: blur(8px);
       transition: opacity 0.5s ease; /* efek halus */
     }
 
@@ -120,13 +115,28 @@
     #slide3 img, 
     #slide4 img, 
     #slide5 img, 
-    #slide6 img{
-      width: 70%;
-      height: auto;
-      object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
-      object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
-      display: block;
+    #slide6 img, 
+    #slide7 img, 
+    #slide8 img{
+        width: 70%;
+        height: auto;
+        object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
+        object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
+        display: block;
     }
+    #slide9{
+        text-align: center;
+    }
+
+    #slide9 img{
+        width: 50%;
+        height: auto;
+        object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
+        object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
+        display: block;
+    }
+
+
     .slide.active {
       display: block;
       opacity: 1;
@@ -174,7 +184,9 @@
     #slide3 img,
     #slide4 img,
     #slide5 img,
-    #slide6 img{
+    #slide6 img,
+    #slide7 img,
+    #slide8 img{
       width: 100%;
       height: auto;
       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */

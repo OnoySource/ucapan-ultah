@@ -1,5 +1,5 @@
 let currentSlide = 1;
-  const totalSlides = 6;
+  const totalSlides = 9;
 
   function showSlide(n) {
     // sembunyiin semua slide
