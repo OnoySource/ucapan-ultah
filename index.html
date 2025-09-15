@@ -62,7 +62,7 @@
 
     /* Overlay biar teks tetap jelas */
     .overlay {
-      display: flex;
+      display: none;
       background: rgba(0, 0, 0, 0.9);
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -71,7 +71,7 @@
       padding: 20px;
     }
     #container {
-        display: none; /* awalnya sembunyiin */
+        display: block; /* awalnya sembunyiin */
         max-width: 600px;
         width: 90%;             /* ikut lebar layar */
         min-height: 400px;
@@ -129,8 +129,13 @@
       backdrop-filter: blur(8px);
       transition: opacity 0.5s ease; /* efek halus */
     }
-    #slide2 img{
-      width: 50%;
+
+    #slide2 img, 
+    #slide3 img, 
+    #slide4 img, 
+    #slide5 img, 
+    #slide6 img{
+      width: 70%;
       height: auto;
       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
       object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
@@ -179,7 +184,11 @@
       padding: 10px;
       
     }
-    #slide2 img{
+    #slide2 img,
+    #slide3 img,
+    #slide4 img,
+    #slide5 img,
+    #slide6 img{
       width: 100%;
       height: auto;
       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
@@ -209,13 +218,53 @@
           <!-------------------------------------------->
           <div class="slide" id="slide2">
             <div class="image">
+              <img src="mentahan/foto-2.jpg" alt="">
+            </div>
+              <div class="list">
+                <button onclick="prevSlide()">⬅️</button>
+                <button onclick="nextSlide()">➡️</button>
+              </div>
+         </div>
+      <!-------------------------------------------->
+          <div class="slide" id="slide3">
+            <div class="image">
+              <img src="mentahan/foto-3.jpg" alt="">
+            </div>
+              <div class="list">
+                <button onclick="prevSlide()">⬅️</button>
+                <button onclick="nextSlide()">➡️</button>
+              </div>
+         </div>
+      <!-------------------------------------------->
+          <div class="slide" id="slide4">
+            <div class="image">
+              <img src="mentahan/foto-5.jpg" alt="">
+            </div>
+              <div class="list">
+                <button onclick="prevSlide()">⬅️</button>
+                <button onclick="nextSlide()">➡️</button>
+              </div>
+         </div>
+      <!-------------------------------------------->
+          <div class="slide" id="slide5">
+            <div class="image">
+              <img src="mentahan/foto-4.jpg" alt="">
+            </div>
+              <div class="list">
+                <button onclick="prevSlide()">⬅️</button>
+                <button onclick="nextSlide()">➡️</button>
+              </div>
+         </div>
+      <!-------------------------------------------->
+          <div class="slide" id="slide6">
+            <div class="image">
               <img src="mentahan/foto-y.jpg" alt="">
             </div>
               <div class="list">
                 <button onclick="prevSlide()">⬅️</button>
                 <button onclick="nextSlide()">➡️</button>
               </div>
-      </div>
+         </div>
       <!-------------------------------------------->
     </div>
   <!-------------------------------------------->
@@ -257,7 +306,7 @@
   }
 
   let currentSlide = 1;
-  const totalSlides = 2;
+  const totalSlides = 6;
 
   function showSlide(n) {
     // sembunyiin semua slide
