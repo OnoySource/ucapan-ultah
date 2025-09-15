@@ -1,3 +1,33 @@
+let currentSlide = 1;
+  const totalSlides = 6;
+
+  function showSlide(n) {
+    // sembunyiin semua slide
+    for (let i = 1; i <= totalSlides; i++) {
+      document.getElementById("slide" + i).classList.remove("active");
+    }
+    // tampilkan slide tertentu
+    document.getElementById("slide" + n).classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide++;
+    if (currentSlide > totalSlides) currentSlide = 1;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide--;
+    if (currentSlide < 1) currentSlide = totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function restartSlide() {
+    currentSlide = 1;
+    showSlide(currentSlide);
+  }
+
+
 function openMail(){
   Swal.fire({
     title: 'Masukkan Nama Kamu',
@@ -32,3 +62,4 @@ function openMail(){
     }
   });
 }
+

@@ -1,57 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .slide {
-  display: none;
-  text-align: center;
-  padding: 20px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(8px);
-  transition: opacity 0.5s ease; /* efek halus */
-}
+function openMail(){
+    Swal.fire({
+      title: 'Masukkan Nama Kamu',
+      input: 'text',
+      inputPlaceholder: 'Tulis nama di sini...',
+      confirmButtonText: 'OK',
+      inputValidator: (value) => {
+        if (!value) {
+          return 'ngeyel, isi nama kamu!';
+        }
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Halo, ' + result.value + ' 🩶',
+          text: 'Aku ada pesan buat kamu nih',
+          confirmButtonText: 'Lihat Pesan'
+        }).then(() => {
+          // ilangin overlay
+          document.querySelector(".overlay").style.display = "none";
 
-.slide.active {
-  display: block;
-  opacity: 1;
-}
+          // munculin container
+          const kontainer = document.getElementById("container");
+          kontainer.style.display = "flex"; 
+          
+        });
+      }
+    });
+  }
 
-button {
-  margin: 10px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-  </style>
-</head>
-<body>
-  <div class="slide active" id="slide1">
-  <h2>🎉 Selamat Ulang Tahun 1 🎂</h2>
-  <button onclick="prevSlide()">⬅️ Sebelumnya</button>
-  <button onclick="nextSlide()">Berikutnya ➡️</button>
-</div>
-
-<div class="slide" id="slide2">
-  <h2>🙏 Semoga Sehat Selalu</h2>
-  <button onclick="prevSlide()">⬅️ Sebelumnya</button>
-  <button onclick="nextSlide()">Berikutnya ➡️</button>
-</div>
-
-<div class="slide" id="slide3">
-  <h2>💖 Bahagia Selalu Ya</h2>
-  <button onclick="prevSlide()">⬅️ Sebelumnya</button>
-  <button onclick="restartSlide()">🔄 Ulang dari Awal</button>
-</div>
-
- <script>
   let currentSlide = 1;
-  const totalSlides = 3;
+  const totalSlides = 6;
 
   function showSlide(n) {
     // sembunyiin semua slide
@@ -78,7 +56,3 @@ button {
     currentSlide = 1;
     showSlide(currentSlide);
   }
-</script>
-
-</body>
-</html>
