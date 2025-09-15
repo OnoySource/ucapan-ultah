@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ucapan Ulang Tahun</title>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap" rel="stylesheet">
   <style>
     /* Reset dasar */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      borer: 1px solid red;
     }
-
-    body {
-      background: url("mentahan/Red\ And\ Blue\ Watercolor\ Happy\ Birthday\ A4\ Document.jpg") ;
-      background-size: cover; /* bikin penuh layar & responsive */
-      font-family: Arial, sans-serif;
+  .moon-dance-regular {
+    font-family: "Moon Dance", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  body {
+    background: url("mentahan/Red\ And\ Blue\ Watercolor\ Happy\ Birthday\ A4\ Document.jpg") ;
+    background-size: cover; /* bikin penuh layar & responsive */
       color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
       height: 100vh;
       display: flex;
@@ -55,32 +63,42 @@
 
     /* Overlay biar teks tetap jelas */
     .overlay {
+      display: none;
       background: rgba(0, 0, 0, 0.9);
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
     #container {
-        display: none; /* awalnya sembunyiin */
+        display: block; /* awalnya sembunyiin */
         max-width: 600px;
         width: 90%;             /* ikut lebar layar */
-        min-height: 200px;
-        background-color: red;
-        backgound: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(8px);
-        border-radius: 15px;
+        min-height: 400px;
+     
+        background-color: #fff0f3;
+        color: #22223b;
+        font-family: "Moon Dance", cursive;
+  
+        border: 4px solid #ff8fa3;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 2px;
+        border-top-left-radius: 2px;  
+        border-top-right-radius: 2px;  
         padding: 20px;
-        text-align: center;
-
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
         margin: 20px;
-        color: white;
         font-size: 1.2rem;
+        text-align: justify;
+      }
+      .image{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      text-align: justify;
+      background-color: red;
     }
 
 
@@ -101,6 +119,43 @@
     .card p {
       font-size: 1.2rem;
     }
+
+    .slide {
+      display: none;
+      text-align: justify;
+      padding: 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      transition: opacity 0.5s ease; /* efek halus */
+    }
+    #slide2 img{
+       width: 100%;
+  height: 100%;
+  object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
+  object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
+  display: block;
+    }
+
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
+    .list{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      align-content: center;
+    }
+    button {
+      
+      margin: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
     
     
     /* Responsive teks */
@@ -108,7 +163,7 @@
         .card h1 { font-size: 1.5rem; }
         .card p { font-size: 1rem; }
         #container {
-            max-width: 90%;
+            max-width: 70%;
             font-size: 1rem;
             padding: 15px;
         }
@@ -119,7 +174,7 @@
         .card p { font-size: 0.9rem; }
         
         #container {
-          max-width: 95%;
+          max-width: 70%;
           font-size: 0.9rem;
           padding: 10px;
         }
@@ -128,8 +183,32 @@
 </head>
 <body>
     <div id="container">
-        <h1>KONTOL</h1>
+      <div class="slide active" id="slide1">
+        <div class="image">
+          <img src="mentahan/Stiker 15 (SFILE.MOBI).gif" alt="">
+          </div>
+          <p>Selamat ulang tahun sayang🎉</pp>
+            <p> untuk seseorang yang begitu berharga dalam hidupku... </p>
+            <p>Semoga kebahagiaanmu hari ini berlipat ganda, karena kamu pantas dapetin itu semua.</p>
+            <div class="list">
+              <button onclick="prevSlide()">⬅️</button>
+              <button onclick="nextSlide()">➡️</button>
+            </div>
+          </div>
+          
+          <!-------------------------------------------->
+          <div class="slide" id="slide2">
+            <div class="image">
+              <img src="mentahan/foto-y.jpg" alt="">
+            </div>
+              <div class="list">
+                <button onclick="prevSlide()">⬅️</button>
+                <button onclick="nextSlide()">➡️</button>
+              </div>
+      </div>
+      <!-------------------------------------------->
     </div>
+  <!-------------------------------------------->
     <div class="overlay">
       <div class="card">
         <img src="mentahan/heart-17211_256.gif" alt="gambar error" onclick="openMail()">
@@ -151,7 +230,7 @@
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: 'Halo, ' + result.value + ' 🎉',
+          title: 'Halo, ' + result.value + ' 💖',
           text: 'Aku ada pesan buat kamu nih',
           confirmButtonText: 'Lihat Pesan'
         }).then(() => {
@@ -161,12 +240,39 @@
           // munculin container
           const kontainer = document.getElementById("container");
           kontainer.style.display = "flex"; 
-            kontainer.innerHTML = `
-            <h2><b>${result.value}</b> KONTOL</h2>
-          `;
+          
         });
       }
     });
+  }
+
+  let currentSlide = 1;
+  const totalSlides = 2;
+
+  function showSlide(n) {
+    // sembunyiin semua slide
+    for (let i = 1; i <= totalSlides; i++) {
+      document.getElementById("slide" + i).classList.remove("active");
+    }
+    // tampilkan slide tertentu
+    document.getElementById("slide" + n).classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide++;
+    if (currentSlide > totalSlides) currentSlide = 1;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide--;
+    if (currentSlide < 1) currentSlide = totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function restartSlide() {
+    currentSlide = 1;
+    showSlide(currentSlide);
   }
 </script>
 
