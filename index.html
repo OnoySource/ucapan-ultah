@@ -130,14 +130,12 @@
       transition: opacity 0.5s ease; /* efek halus */
     }
     #slide2 img{
-      width: 100%;
+      width: 70%;
       height: auto;
       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
       object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
       display: block;
     }
-
-    
 
     .slide.active {
       display: block;
@@ -170,23 +168,30 @@
             padding: 15px;
         }
      #slide2 img{
-        width: 70%;
+        width:100%;
         height: auto;
         object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
         object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
         display: block;
     }
-    }
+  }
+  
+  @media (max-width: 480px) {
+    .card h1 { font-size: 1.2rem; }
+    .card p { font-size: 0.9rem; }
     
-    @media (max-width: 480px) {
-        .card h1 { font-size: 1.2rem; }
-        .card p { font-size: 0.9rem; }
-        
-        #container {
-          max-width: 70%;
-          font-size: 0.9rem;
-          padding: 10px;
-        }
+    #container {
+      max-width: 70%;
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+    #slide2 img{
+       width:100%;
+       height: auto;
+       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
+       object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
+       display: block;
+    }
     }
   </style>
 </head>
