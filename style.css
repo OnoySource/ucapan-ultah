@@ -168,7 +168,7 @@
     #slide6 img,
     #slide7 img,
     #slide8 img{
-      width: 100%;
+      width: 80%;
       height: auto;
       object-fit: cover; /* <--- kunci: crop sambil menjaga rasio */
       object-position: center; /* atur fokus crop (contoh: top left, 20% 40%) */
