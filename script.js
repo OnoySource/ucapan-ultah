@@ -52,6 +52,9 @@ function openMail(){
         // munculin container
         const kontainer = document.getElementById("container");
         kontainer.style.display = "flex"; 
+        setTimeout(() => {
+            kontainer.classList.add("show");
+        }, 50); // delay dikit biar transisi kepicu
 
         // 🎶 Putar musik setelah klik "Lihat Pesan"
         const audio = document.getElementById("bg-music");
